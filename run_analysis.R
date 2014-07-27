@@ -1,8 +1,8 @@
 # For more analysis, check out CodeBook.md
 
 # Download files
-download.file(url = "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", destfile = "data.zip", method = "curl")
-unzip("data.zip")
+#download.file(url = "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", destfile = "data.zip", method = "curl")
+#unzip("data.zip")
 
 # Read in all relevant files
 features <- read.table(file = "UCI HAR Dataset/features.txt")
@@ -31,4 +31,4 @@ tidy_table$Subject <- NULL # Remove last 2 columns
 tidy_table$Activity <- NULL
 colnames(tidy_table)[1:2] <- c("Subject", "Activity") # Rename first two columns
 tidy_table$Activity <- sapply(tidy_table$Activity, FUN = function(x) activity_labels[x, 2])
-write.table(tidy_table, "tidy_table.csv", sep = ", ")
+write.table(tidy_table, "tidy_table.csv", sep = ", ", row.names = FALSE)
